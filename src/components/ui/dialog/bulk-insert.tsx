@@ -16,6 +16,7 @@ import Papa from "papaparse";
 interface BulkImport {
   file: File | undefined;
   table: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     parsedData?: any[];
 }
 

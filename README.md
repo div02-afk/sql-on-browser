@@ -23,13 +23,23 @@ A web-based SQL query management tool built with Vite, React, TypeScript, and Ta
 - **Data Table**: TanStack Table
 - **Database Engine**: (Attempted) SQLite WASM for in-browser SQL execution
 
-## Usage
+## Dependencies
+- [Vite](https://vitejs.dev/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Zustand](https://zustand-demo.pmnd.rs/)
+- [TanStack Table](https://tanstack.com/table/v8)
+- [Papaparse](https://www.papaparse.com/)
 
-- Connect to a database.
-- Enter SQL queries and execute them.
-- View query results and export them if needed.
-- Create and manage query groups.
-- Bulk import queries in JSON/CSV format.
+
+## Performance Metrics (Lighthouse)
+
+- **First Contentful Paint**: 0.7 s
+- **Largest Contentful Paint**: 0.7 s
+- **Total Blocking Time**: 10 ms
+- **Cumulative Layout Shift**: 0
+- **Speed Index**: 0.8 s
 
 ## Contributing
 

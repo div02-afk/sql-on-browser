@@ -1,19 +1,19 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { persist, StorageValue } from "zustand/middleware";
 import { del, get, set } from "idb-keyval";
 import { Connection, Query, QuerySet } from "@/lib/types";
 import { generateRandomQueryResult } from "@/lib/utils";
 import { connections, dummyQueryHistory } from "@/constants";
 
 const indexedDBStorage = {
-  getItem: async (name) => {
+  getItem: async (name: string) => {
     const value = await get(name);
     return value ? JSON.parse(value) : null;
   },
-  setItem: async (name, value) => {
+  setItem: async (name: string, value: StorageValue<QueryStoreState>) => {
     await set(name, JSON.stringify(value));
   },
-  removeItem: async (name) => {
+  removeItem: async (name: string) => {
     await del(name);
   },
 };

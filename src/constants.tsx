@@ -7,7 +7,7 @@ const dummyQueryHistory: QuerySet[] = [
     queries: [],
     database: "user_db",
     connection: "Localhost User DB",
-    username: "admin",
+    user: "admin",
     pinned: false,
   },
   {
@@ -16,7 +16,7 @@ const dummyQueryHistory: QuerySet[] = [
     queries: [],
     database: "order_db",
     connection: "Localhost Order DB",
-    username: "manager",
+    user: "manager",
     pinned: true,
   },
   {
@@ -25,7 +25,7 @@ const dummyQueryHistory: QuerySet[] = [
     queries: [],
     database: "inventory_db",
     connection: "Localhost Inventory DB",
-    username: "admin",
+    user: "admin",
     pinned: false,
   },
 ];
