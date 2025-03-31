@@ -1,54 +1,41 @@
-# React + TypeScript + Vite
+# Query Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web-based SQL query management tool built with Vite, React, TypeScript, and Tailwind. It allows users to execute queries across multiple database connections, view results using TanStack Table, and manage query groups efficiently.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Query Execution**: Input and run SQL queries with results displayed using TanStack Table.
+- **Multiple Database Connections**: Seamlessly switch between different database connections.
+- **Bulk Import**: Import queries from JSON or CSV files.
+- **Query Groups**:
+  - Create new query groups.
+  - Pin/unpin query groups.
+  - Organize groups by database and user.
+- **Download Query Results**: Export results in JSON or CSV format.
+- **Persistent State Management**: Uses Zustand with IndexedDB instead of LocalStorage for improved performance and scalability.
+- **Future Enhancements**:
+  - Query Builder for visual query construction.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: Vite, React, TypeScript, Tailwind, ShadCN
+- **State Management**: Zustand with IndexedDB
+- **Data Table**: TanStack Table
+- **Database Engine**: (Attempted) SQLite WASM for in-browser SQL execution
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Usage
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Connect to a database.
+- Enter SQL queries and execute them.
+- View query results and export them if needed.
+- Create and manage query groups.
+- Bulk import queries in JSON/CSV format.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Contributing
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Contributions are welcome! Feel free to fork the repository, submit issues, or open pull requests.
+
+## License
+
+This project is licensed under the MIT License.
+
