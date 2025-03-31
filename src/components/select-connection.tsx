@@ -1,18 +1,24 @@
-
 import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
 } from "@/components/ui/select";
-import { connections } from "@/constants";
+import useQueryStore from "@/store/queryStore";
 
 export function SelectConnection() {
+  const { connections, selectedConnection, setSelectedConnection } =
+    useQueryStore();
   return (
-    <Select>
+    <Select
+      onValueChange={(value) => {
+        setSelectedConnection(value);
+      }}
+      value={selectedConnection || ""}
+    >
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Select a Connection" />
       </SelectTrigger>

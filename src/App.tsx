@@ -6,7 +6,7 @@ function App() {
   return (
     <SidebarProvider className="bg-[#0e0e0e]">
       <AppSidebar />
-      <main className="flex w-screen h-screen ">
+      <main className="flex min-h-screen h-full w-screen">
         <SidebarTrigger className="text-[#585858]" />
         <Main />
       </main>

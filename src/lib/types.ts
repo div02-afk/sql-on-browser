@@ -1,16 +1,19 @@
 interface Connection {
-  id: number;
+  id: string;
   name: string;
   host: string;
   database: string;
-  user: string;
+  username: string;
   password: string;
 }
 
 interface Query {
   id: string;
   query: string;
-  result: object;
+  columns: string[];
+  result: {
+    [key: string]: string | number | boolean | Date | null | undefined;
+  }[];
   error: boolean;
   duration: string;
   rows: number;
@@ -28,10 +31,10 @@ interface QuerySet {
 }
 interface QueryHistoryItem {
   title: string;
+  id: string;
   database: string;
   user: string;
   host: string;
   time: string;
-  
 }
 export type { Connection, QuerySet, Query, QueryHistoryItem };

@@ -118,3 +118,30 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+.custom-scrollbar {
+  overflow-y: auto; /* Enables vertical scrolling */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #585858 #00000000; /* Thumb and track color */
+}
+
+/* WebKit-based browsers (Chrome, Edge, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1e1e2e;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #878787, #585858);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #6246ea;
+}

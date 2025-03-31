@@ -1,16 +1,24 @@
-import { QueryHistoryItem } from "@/lib/types";
+import { QuerySet } from "@/lib/types";
+import useQueryStore from "@/store/queryStore";
 import { Database, PinIcon, User } from "lucide-react";
-import { useState } from "react";
 import Tag from "../tag";
 
-interface QueryHistoryItemProps {
-  item: QueryHistoryItem;
-}
+export default function QueryHistoryItemCard({ item }: { item: QuerySet }) {
+  const { pinUnpinQuerySet, setCurrentQuerySet, currentQuerySet, querySets } =
+    useQueryStore();
 
-export default function QueryHistoryItemCard({ item }: QueryHistoryItemProps) {
-  const [pinned, setPinned] = useState(false);
+  const thisQuerySet = querySets?.filter((query) => query.id === item.id)[0];
+
   return (
-    <div className="p-3 mb-2 bg-accent-foreground border border-[#595959] rounded-md shadow-sm">
+    <div
+      className={`p-3 mb-2 bg-accent-foreground border border-[#595959] rounded-md shadow-sm transition-all duration-300
+        ${currentQuerySet?.id === item.id && "border-[#cacaca]"}
+        `}
+      onClick={() => {
+        console.log("clicked", item.id);
+        setCurrentQuerySet(item.id);
+      }}
+    >
       {/* <div className="flex justify-between items-center mb-2">
         <div className="flex items-center space-x-2">
           <User className="w-4 h-4 text-gray-600" />
@@ -24,12 +32,17 @@ export default function QueryHistoryItemCard({ item }: QueryHistoryItemProps) {
         // title={item.query}
       >
         {item.title}
-        <button className="p-1 cursor-pointer">
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            pinUnpinQuerySet(item.id);
+          }}
+          className="p-2 cursor-pointer"
+        >
           <PinIcon
             className={`duration-300 transition-all scale-75 text-[${
-              pinned ? "#888888" : "#585858"
+              thisQuerySet.pinned ? "#888888" : "#585858"
             }]`}
-            onClick={() => setPinned(!pinned)}
           />
         </button>
       </div>
@@ -68,10 +81,10 @@ export default function QueryHistoryItemCard({ item }: QueryHistoryItemProps) {
         )} */}
       </div>
 
-      <div className="text-xs text-[#585858] flex justify-between">
-        <span>{item.time}</span>
-        {/* <span>{item.duration}</span> */}
-      </div>
+      {/* <div className="text-xs text-[#585858] flex justify-between"> */}
+      {/* <span>{item.time}</span> */}
+      {/* <span>{item.duration}</span> */}
+      {/* </div> */}
     </div>
   );
 }
