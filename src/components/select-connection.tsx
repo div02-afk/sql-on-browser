@@ -19,7 +19,7 @@ export function SelectConnection() {
       }}
       value={selectedConnection || ""}
     >
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[180px] border-[#585858]">
         <SelectValue placeholder="Select a Connection" />
       </SelectTrigger>
       <SelectContent className="bg-[#0e0e0e] text-[#585858]">

@@ -7,7 +7,7 @@ const dummyQueryHistory: QuerySet[] = [
     queries: [],
     database: "user_db",
     connection: "Localhost User DB",
-    user: "admin",
+    username: "admin",
     pinned: false,
   },
   {
@@ -16,7 +16,7 @@ const dummyQueryHistory: QuerySet[] = [
     queries: [],
     database: "order_db",
     connection: "Localhost Order DB",
-    user: "manager",
+    username: "manager",
     pinned: true,
   },
   {
@@ -25,7 +25,7 @@ const dummyQueryHistory: QuerySet[] = [
     queries: [],
     database: "inventory_db",
     connection: "Localhost Inventory DB",
-    user: "admin",
+    username: "admin",
     pinned: false,
   },
 ];
@@ -36,7 +36,7 @@ const connections: Connection[] = [
     name: "Localhost User DB",
     host: "localhost",
     database: "user_db",
-    user: "admin",
+    username: "admin",
     password: "password123",
   },
   {
@@ -44,7 +44,7 @@ const connections: Connection[] = [
     name: "Localhost Order DB",
     host: "localhost",
     database: "order_db",
-    user: "manager",
+    username: "manager",
     password: "manager123",
   },
   {
@@ -52,9 +52,8 @@ const connections: Connection[] = [
     name: "Localhost Inventory DB",
     host: "localhost",
     database: "inventory_db",
-    user: "admin",
+    username: "admin",
     password: "admin123",
   },
 ];
 export { connections, dummyQueryHistory };
-

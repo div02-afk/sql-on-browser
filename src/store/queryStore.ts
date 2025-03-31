@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 import { del, get, set } from "idb-keyval";
 import { Connection, Query, QuerySet } from "@/lib/types";
 import { generateRandomQueryResult } from "@/lib/utils";
-import { dummyQueryHistory } from "@/constants";
+import { connections, dummyQueryHistory } from "@/constants";
 
 const indexedDBStorage = {
   getItem: async (name) => {
@@ -39,7 +39,7 @@ const useQueryStore = create(
   persist<QueryStoreState>(
     (set) => ({
       querySets: dummyQueryHistory,
-      connections: [],
+      connections: connections,
       currentQuerySet: null,
       selectedConnection: null,
       setSelectedConnection: (connectionId) =>
